@@ -62,7 +62,7 @@ function generateAquarium() {
           }
         }
       }
-      // Rows 1 - 3 will be clouds
+      // Rows 1 - 2 will be clouds
       else if (row >= 1 && row <= 2) {
         // 5% chance to draw a random cloud
         if (Math.random() < 0.05) {
@@ -70,6 +70,10 @@ function generateAquarium() {
         } else {
           ret += emptySpace;
         }
+      }
+      // Row 3 will be empty
+      else if (row === 3) {
+        ret += emptySpace;
       }
       // Row 4 will be water/transports
       else if (row === 4) {
