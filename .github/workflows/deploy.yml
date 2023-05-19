@@ -25,7 +25,6 @@ jobs:
       - name: Install and Build 🔧
         run: |
           npm install
-          npm run build
           node generator.js
 
       - name: Deploy 🚀
