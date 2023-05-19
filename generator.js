@@ -21,7 +21,8 @@ const fs = require("fs");
 
 function generateAquarium() {
   let ret = ""; // This will be written out to README.md
-  const emptySpace = "  ";
+
+  const emptySpace = "▫️";
   const clouds = ["☁️", "🌧️", "⛈️", "🌩️"];
   const nightSkyTreats = ["🛸", "🚀", "⭐️", "☄️"];
   const wave = "🌊";
