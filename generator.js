@@ -20,9 +20,9 @@ const fs = require("fs");
 // +-----------------------------------------------------------+ {14}
 
 function generateAquarium() {
-  let ret = "```\n"; // This will be written out to README.md
+  let ret = ""; // This will be written out to README.md
 
-  const emptySpace = "  ";
+  const emptySpace = "![](./empty.png)";
   const clouds = ["☁️", "🌧️", "⛈️", "🌩️"];
   const nightSkyTreats = ["🛸", "🚀", "⭐️", "☄️"];
   const wave = "🌊";
@@ -100,8 +100,6 @@ function generateAquarium() {
     // Start the next line
     ret += `\n`;
   }
-
-  ret += "```\n";
 
   fs.writeFileSync(`./README.md`, ret);
 }
