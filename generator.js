@@ -24,7 +24,7 @@ function generateAquarium() {
 
   const emptySpace = `<img src="./empty.png"  width="17.5" height="17.5">`;
   const clouds = ["☁️", "🌧️", "⛈️", "🌩️"];
-  const nightSkyTreats = ["🛸", "🚀", "⭐️", "☄️"];
+  const nightSkyTreats = ["🛸", "🚀", "⭐️", "☄️", "✨"];
   const wave = "🌊";
   const transport = ["⛵", "🛶", "🚤", "🛳", "⛴", "🛥", "🚢"];
   const underwater = [
@@ -63,7 +63,7 @@ function generateAquarium() {
         }
       }
       // Rows 1 - 3 will be clouds
-      else if (row >= 1 && row <= 3) {
+      else if (row >= 1 && row <= 2) {
         // 5% chance to draw a random cloud
         if (Math.random() < 0.05) {
           ret += clouds[Math.floor(Math.random() * clouds.length)];
@@ -73,7 +73,7 @@ function generateAquarium() {
       }
       // Row 4 will be water/transports
       else if (row === 4) {
-        if (Math.random() < 0.025) {
+        if (Math.random() < 0.05) {
           ret += transport[Math.floor(Math.random() * transport.length)];
         } else {
           ret += wave;
@@ -89,7 +89,7 @@ function generateAquarium() {
       }
       // Rows 12 - 14 will be greens
       else {
-        if (Math.random() < 0.05) {
+        if (Math.random() < 0.08) {
           ret += deepWater[Math.floor(Math.random() * deepWater.length)];
         } else {
           ret += emptySpace;
