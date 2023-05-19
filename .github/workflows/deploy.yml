@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code 🛎
         uses: actions/checkout@v3
         with:
-          persist-credentials: false
+          persist-credentials: true
 
       - name: Setup Node 🏗
         uses: actions/setup-node@v3
