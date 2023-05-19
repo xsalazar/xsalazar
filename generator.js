@@ -98,7 +98,7 @@ function generateAquarium() {
     }
 
     // Start the next line
-    ret += `\n`;
+    ret += `\n\n`;
   }
 
   fs.writeFileSync(`./README.md`, ret);
