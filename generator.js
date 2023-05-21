@@ -40,7 +40,6 @@ function generateAquarium() {
     "🫧",
     "🦭",
     "🪼",
-    "",
   ];
   const deepWater = ["🌿", "🌱", "🪸", "🐚", "🦪", "🦀", "🦞"];
 
@@ -150,7 +149,7 @@ function getIsDay() {
   const hours = date_pt.getHours();
 
   // If it's between 6 and 17, let's show the sun and its position across the sky
-  if (hours > 6 || hours < 17) {
+  if (hours >= 6 && hours <= 17) {
     return { isDay: true, position: hoursToPositionMap[hours] };
   }
   // Otherwise, let's show the moon, its position across the sky, and it's correct phase
@@ -158,7 +157,7 @@ function getIsDay() {
     return {
       isDay: false,
       position: hoursToPositionMap[hours],
-      lunarEmoji: Moon.lunarPhaseEmoji,
+      lunarEmoji: Moon.lunarPhaseEmoji(),
     };
   }
 }
