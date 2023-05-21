@@ -26,7 +26,7 @@ function generateAquarium() {
   const clouds = ["☁️", "🌧️", "⛈️", "🌩️"];
   const nightSkyTreats = ["🛸", "🚀", "⭐️", "☄️", "✨"];
   const wave = "🌊";
-  const transport = ["⛵", "🛶", "🚤", "🛳", "⛴", "🛥", "🚢"];
+  const transport = ["⛵", "🛶", "🚤", "🛳", "⛴", "🛥", "🚢", "🏖️", "🏝️"];
   const underwater = [
     "🐟",
     "🐠",
