@@ -45,7 +45,7 @@ function generateAquarium() {
 
   // There are 15 total rows, top-to-bottom
   for (var row = 0; row < 15; row++) {
-    for (var column = 0; column <= 44; column++) {
+    for (var column = 0; column < 44; column++) {
       // Row 0 will contain the sun/moon in its correct position
       // Find out if it's AM or PM
       const { isDay, position, lunarEmoji } = getIsDay();
@@ -113,30 +113,30 @@ function generateAquarium() {
  */
 function getIsDay() {
   const hoursToPositionMap = {
-    0: 20,
-    1: 16,
-    2: 12,
-    3: 8,
-    4: 4,
+    0: 19,
+    1: 15,
+    2: 11,
+    3: 7,
+    4: 3,
     5: 0,
-    6: 44,
-    7: 40,
-    8: 36,
-    9: 32,
-    10: 28,
-    11: 24,
-    12: 20,
-    13: 16,
-    14: 12,
-    15: 8,
-    16: 4,
+    6: 43,
+    7: 39,
+    8: 35,
+    9: 31,
+    10: 27,
+    11: 23,
+    12: 19,
+    13: 15,
+    14: 11,
+    15: 7,
+    16: 3,
     17: 0,
-    18: 44,
-    19: 40,
-    20: 36,
-    21: 32,
-    22: 28,
-    23: 24,
+    18: 43,
+    19: 39,
+    20: 35,
+    21: 31,
+    22: 27,
+    23: 23,
   };
 
   const date_pt = new Date(
