@@ -45,7 +45,7 @@ function generateAquarium() {
 
   // There are 15 total rows, top-to-bottom
   for (var row = 0; row < 15; row++) {
-    for (var column = 0; column < 48; column++) {
+    for (var column = 0; column <= 44; column++) {
       // Row 0 will contain the sun/moon in its correct position
       // Find out if it's AM or PM
       const { isDay, position, lunarEmoji } = getIsDay();
