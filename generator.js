@@ -51,11 +51,12 @@ function generateAquarium() {
       const { isDay, position, lunarEmoji } = getIsDay();
       if (row === 0) {
         if (column === position) {
-          ret += isDay ? "☀️" : lunarEmoji;
+          ret += isDay ? wrapEmoji("☀️") : wrapEmoji(lunarEmoji);
         } else {
           if (Math.random() < 0.025 && !isDay) {
-            ret +=
-              nightSkyTreats[Math.floor(Math.random() * nightSkyTreats.length)];
+            ret += wrapEmoji(
+              nightSkyTreats[Math.floor(Math.random() * nightSkyTreats.length)]
+            );
           } else {
             ret += emptySpace;
           }
@@ -65,7 +66,7 @@ function generateAquarium() {
       else if (row >= 1 && row <= 2) {
         // 5% chance to draw a random cloud
         if (Math.random() < 0.05) {
-          ret += clouds[Math.floor(Math.random() * clouds.length)];
+          ret += wrapEmoji(clouds[Math.floor(Math.random() * clouds.length)]);
         } else {
           ret += emptySpace;
         }
@@ -77,15 +78,19 @@ function generateAquarium() {
       // Row 4 will be water/transports
       else if (row === 4) {
         if (Math.random() < 0.05) {
-          ret += transport[Math.floor(Math.random() * transport.length)];
+          ret += wrapEmoji(
+            transport[Math.floor(Math.random() * transport.length)]
+          );
         } else {
-          ret += wave;
+          ret += wrapEmoji(wave);
         }
       }
       // Rows 5 - 11 will be fishies
       else if (row >= 5 && row <= 11) {
         if (Math.random() < 0.05) {
-          ret += underwater[Math.floor(Math.random() * underwater.length)];
+          ret += wrapEmoji(
+            underwater[Math.floor(Math.random() * underwater.length)]
+          );
         } else {
           ret += emptySpace;
         }
@@ -93,7 +98,9 @@ function generateAquarium() {
       // Rows 12 - 14 will be greens
       else {
         if (Math.random() < 0.08) {
-          ret += deepWater[Math.floor(Math.random() * deepWater.length)];
+          ret += wrapEmoji(
+            deepWater[Math.floor(Math.random() * deepWater.length)]
+          );
         } else {
           ret += emptySpace;
         }
@@ -160,6 +167,15 @@ function getIsDay() {
       lunarEmoji: Moon.lunarPhaseEmoji(),
     };
   }
+}
+
+/**
+ * Helper function to wrap emoji in `<g-emoji>` tag for consistent rendering on GitHub
+ * @param {string} emoji
+ * @returns {string}
+ */
+function wrapEmoji(emoji) {
+  return `<g-emoji class="g-emoji">${emoji}</g-emoji>`;
 }
 
 generateAquarium();
