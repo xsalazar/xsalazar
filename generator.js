@@ -22,7 +22,7 @@ const fs = require("fs");
 function generateAquarium() {
   let ret = ""; // This will be written out to README.md
 
-  const emptySpace = `<img src="./empty.png" width="17.5" height="17.5">`;
+  const emptySpace = `<img src="./assets/empty.png" width="17.5" height="17.5">`;
   const sun = "2600"; // ☀️
   const clouds = [
     "2601", // ☁️
@@ -81,11 +81,14 @@ function generateAquarium() {
       const { isDay, position, lunarEmoji } = getIsDay();
       if (row === 0) {
         if (column === position) {
-          ret += isDay ? wrapEmoji(sun) : wrapEmoji(lunarEmoji);
+          ret += isDay
+            ? wrapEmoji(sun, Math.random() < 0.01)
+            : wrapEmoji(lunarEmoji);
         } else {
           if (Math.random() < 0.025 && !isDay) {
             ret += wrapEmoji(
-              nightSkyTreats[Math.floor(Math.random() * nightSkyTreats.length)]
+              nightSkyTreats[Math.floor(Math.random() * nightSkyTreats.length)],
+              Math.random() < 0.01
             );
           } else {
             ret += emptySpace;
@@ -94,7 +97,6 @@ function generateAquarium() {
       }
       // Rows 1 - 2 will be clouds
       else if (row >= 1 && row <= 2) {
-        // 5% chance to draw a random cloud
         if (Math.random() < 0.05) {
           ret += wrapEmoji(clouds[Math.floor(Math.random() * clouds.length)]);
         } else {
@@ -112,14 +114,21 @@ function generateAquarium() {
             transport[Math.floor(Math.random() * transport.length)]
           );
         } else {
-          ret += wrapEmoji(wave);
+          if (Math.random() < 0.005) {
+            // 0.5% chance to replace wave with jumping dolphin
+            // In the water section due to how the animation looks
+            ret += wrapEmoji("1f42c", true);
+          } else {
+            ret += wrapEmoji(wave);
+          }
         }
       }
       // Rows 5 - 11 will be fishies
       else if (row >= 5 && row <= 11) {
         if (Math.random() < 0.05) {
           ret += wrapEmoji(
-            underwater[Math.floor(Math.random() * underwater.length)]
+            underwater[Math.floor(Math.random() * underwater.length)],
+            Math.random() < 0.01
           );
         } else {
           ret += emptySpace;
@@ -129,7 +138,8 @@ function generateAquarium() {
       else {
         if (Math.random() < 0.08) {
           ret += wrapEmoji(
-            deepWater[Math.floor(Math.random() * deepWater.length)]
+            deepWater[Math.floor(Math.random() * deepWater.length)],
+            Math.random() < 0.01
           );
         } else {
           ret += emptySpace;
@@ -241,9 +251,14 @@ function getIsDay() {
 /**
  * Helper function to wrap emoji in `<g-emoji>` tag for consistent rendering on GitHub
  * @param {string} emoji
+ * @param {boolean} isAnimated
  * @returns {string}
  */
-function wrapEmoji(emoji) {
+function wrapEmoji(emoji, isAnimated = false) {
+  if (isAnimated && fs.existsSync(`./assets/${emoji}.gif`)) {
+    return `<img src="./assets/${emoji}.gif" width="17.5" height="17.5" />`;
+  }
+
   return `<img src="https://raw.githubusercontent.com/googlefonts/noto-emoji/main/png/72/emoji_u${emoji}.png" width="17.5" height="17.5" />`;
 }
 
