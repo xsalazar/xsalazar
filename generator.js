@@ -213,7 +213,7 @@ function getIsDay() {
   // Otherwise, let's show the moon, its position across the sky, and its correct phase
   else {
     let lunarEmoji;
-    switch (Moon.lunarPhaseEmoji) {
+    switch (Moon.lunarPhaseEmoji()) {
       case NorthernHemisphereLunarEmoji.NEW:
         lunarEmoji = moonPhases.new;
         break;
