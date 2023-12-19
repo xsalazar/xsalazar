@@ -98,7 +98,10 @@ function generateAquarium() {
       // Rows 1 - 2 will be clouds
       else if (row >= 1 && row <= 2) {
         if (Math.random() < 0.05) {
-          ret += wrapEmoji(clouds[Math.floor(Math.random() * clouds.length)]);
+          ret += wrapEmoji(
+            clouds[Math.floor(Math.random() * clouds.length)],
+            Math.random() < 0.01
+          );
         } else {
           ret += emptySpace;
         }
@@ -118,6 +121,10 @@ function generateAquarium() {
             // 0.5% chance to replace wave with jumping dolphin
             // In the water section due to how the animation looks
             ret += wrapEmoji("1f42c", true);
+          } else if (Math.random() < 0.005) {
+            // 0.5% chance to replace wave with shark
+            // In the water section due to how the animation looks
+            ret += wrapEmoji("1f988", true);
           } else {
             ret += wrapEmoji(wave);
           }
