@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/xsalazar/xsalazar#readme",
   "dependencies": {
-    "lunarphase-js": "^2.0.2"
+    "lunarphase-js": "^2.0.3"
   }
 }
