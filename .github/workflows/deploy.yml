@@ -5,6 +5,9 @@ on:
     - cron: "0 */1 * * *" # Every hour
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -17,7 +20,7 @@ jobs:
       - name: Setup Node 🏗
         uses: actions/setup-node@v6
         with:
-          node-version: "18"
+          node-version: "24"
 
       - name: Install and Build 🔧
         run: |
