@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "main": "generator.js",
   "dependencies": {
-    "lunarphase-js": "^2.0.3"
+    "lunarphase-js": "~2.0.3"
   }
 }
