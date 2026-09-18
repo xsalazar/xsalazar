@@ -266,7 +266,7 @@ function wrapEmoji(emoji, isAnimated = false) {
     return `<img src="./assets/${emoji}.gif" width="17.5" height="17.5" />`;
   }
 
-  return `<img src="https://raw.githubusercontent.com/googlefonts/noto-emoji/main/png/72/emoji_u${emoji}.png" width="17.5" height="17.5" />`;
+  return `<img src="https://raw.githubusercontent.com/googlefonts/noto-emoji/main/2D/png/72/emoji_u${emoji}.png" width="17.5" height="17.5" />`;
 }
 
 generateAquarium();
